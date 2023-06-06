@@ -40,7 +40,7 @@ const CardDeck2 = () => {
         alert(e)
       } 
     }
-
+    
     if(autoDraw && !timerId.current){
       timerId.current = setInterval(() => {
         drawCard()
@@ -51,9 +51,10 @@ const CardDeck2 = () => {
     return () => {
       clearInterval(timerId.current);
       timerId.current = null;
+      console.log('INSIDE RETURN')
     }
 
-  }, [autoDraw, setAutoDraw, deck]);
+  }, [autoDraw, deck]);
   
   const toggleDraw = () => {
     setAutoDraw(autoDraw => !autoDraw);
@@ -74,6 +75,3 @@ const CardDeck2 = () => {
 }
 
 export default CardDeck2;
-
-// when is the return statement ran
-// how why both autoDraw and setAutoDraw in dependency array
